@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: ['public/**/*.js'],
-        dest: 'public/everything.min.js',
+        dest: 'public/all.min.js',
       },
     },
 
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          'public/all.min.js': ['public/everything.min.js']
+          'public/everything.min.js': ['public/all.min.js']
         }
       }
     },
