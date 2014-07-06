@@ -25,8 +25,13 @@ module.exports = function(grunt) {
     },
 
     uglify: {
-      files:{
-        'public/all.min.js':  ['public/everything.min.js']
+      options: {
+        mangle: false
+      },
+      my_target: {
+        files: {
+          'public/all.min.js': ['public/everything.min.js']
+        }
       }
     },
 
