@@ -3,9 +3,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
-      src: ['public/lib/*.js',
-        'public/client/*.js'],
-      dest: 'public/everything.min.js'
+      dist: {
+        src: ['public/**/*.js'],
+        dest: 'public/everything.min.js',
+      },
     },
 
     mochaTest: {
@@ -25,7 +26,7 @@ module.exports = function(grunt) {
 
     uglify: {
       files:{
-        'public/all.min.js':  ['public/lib/everything.min.js']
+        'public/all.min.js':  ['public/everything.min.js']
       }
     },
 
@@ -108,8 +109,7 @@ module.exports = function(grunt) {
     'jshint'
   ]);
 
-  grunt.registerTask('build', ['concat', 'uglify', 'cssmin'
-  ]);
+  grunt.registerTask('build', ['concat', 'uglify', 'cssmin']);
 
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
