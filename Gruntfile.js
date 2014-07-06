@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     concat: {
       src: ['public/lib/*.js',
         'public/client/*.js'],
-      dest: ['public/everything.min.js']
+      dest: 'public/everything.min.js'
     },
 
     mochaTest: {
@@ -24,8 +24,9 @@ module.exports = function(grunt) {
     },
 
     uglify: {
-      src: ['public/lib/*.js',
-      'public/client/*.js'],
+      files:{
+        'public/all.min.js':  ['public/lib/everything.min.js']
+      }
     },
 
     jshint: {
@@ -46,7 +47,7 @@ module.exports = function(grunt) {
       minify: {
         expand: true,
         cwd: 'public/',
-        src: ['*.css'],
+        src: ['*.css', '!*.min.css'],
         dest: 'public/',
         ext: '.min.css'
       }
@@ -107,7 +108,7 @@ module.exports = function(grunt) {
     'jshint'
   ]);
 
-  grunt.registerTask('build', ['uglify', 'concat', 'cssmin'
+  grunt.registerTask('build', ['concat', 'uglify', 'cssmin'
   ]);
 
   grunt.registerTask('upload', function(n) {
