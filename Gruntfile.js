@@ -52,9 +52,9 @@ module.exports = function(grunt) {
     cssmin: {
       minify: {
         expand: true,
-        cwd: 'public/',
+        cwd: 'public',
         src: ['*.css', '!*.min.css'],
-        dest: 'public/',
+        dest: 'public',
         ext: '.min.css'
       }
     },
@@ -72,7 +72,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: 'public/*.css',
-        tasks: ['cssmin']
+        tasks: ['cssmin:combine']
       }
     },
 
