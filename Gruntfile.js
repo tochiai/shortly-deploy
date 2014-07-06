@@ -114,7 +114,7 @@ module.exports = function(grunt) {
     'jshint'
   ]);
 
-  grunt.registerTask('build', ['concat', 'uglify', 'cssmin']);
+  grunt.registerTask('build', ['concat', 'cssmin']);//need to uglify
 
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
